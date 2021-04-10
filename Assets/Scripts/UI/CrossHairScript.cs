@@ -1,5 +1,4 @@
 ﻿using System;
-using Parent;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -40,7 +39,7 @@ namespace Character.UI
         {
             if (GameManager.Instance.CursorActive)
             {
-                AppEvents.Invoke_OnMouseCursorEnble(false);
+                AppEvents.Invoke_OnMouseCursorEnable(false);
             }
 
             CrosshairStartingPosition = new Vector2(Screen.width / 2f, Screen.height / 2f);
@@ -70,13 +69,13 @@ namespace Character.UI
         private new void OnEnable()
         {
             base.OnEnable();
-            GameInput.Player.Look.performed += OnLook;
+            GameInput.PlayerActionMap.Look.performed += OnLook;
         }
 
         private new void OnDisable()
         {
             base.OnDisable();
-            GameInput.Player.Look.performed -= OnLook;
+            GameInput.PlayerActionMap.Look.performed -= OnLook;
         }
 
         private void OnLook(InputAction.CallbackContext delta)

@@ -66,7 +66,6 @@ namespace Weapons
             {
                 //InvokeRepeating(nameof(FireWeapon),WeaponStats.FireStartDelay,WeaponStats.FireRate);
                 InvokeRepeating(nameof(FireWeapon), 0.0f, WeaponStats.FireRate);
-                Debug.Log("CHECK");
             }
             else
             {
@@ -83,7 +82,6 @@ namespace Weapons
 
         protected virtual void FireWeapon()
         {
-            Debug.Log("CHECKME");
             WeaponStats.BulletsInClip--;
         }
 

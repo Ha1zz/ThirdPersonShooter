@@ -5,10 +5,12 @@ using UnityEngine;
 public class BodyguardFollowState : BodyguardStates
 {
     private readonly GameObject FollowTarget;
-    private const float StopDistance = 2.0f;
+    private float StopDistance = 15.0f;
+    private bool IsShortRange;
 
-    public BodyguardFollowState(GameObject followTarget, BodyguardComponent Bodyguard, StateMachines stateMachine) : base(Bodyguard, stateMachine)
+    public BodyguardFollowState(bool isShortRange,GameObject followTarget, BodyguardComponent Bodyguard, StateMachine stateMachine) : base(Bodyguard, stateMachine)
     {
+        IsShortRange = isShortRange;
         FollowTarget = followTarget;
         UpdateInterval = 2.0f;
 
@@ -18,25 +20,34 @@ public class BodyguardFollowState : BodyguardStates
     {
         base.Start();
         OwnerBodyguard.BodyguardNavMesh.SetDestination(FollowTarget.transform.position);
+        if (IsShortRange)
+        {
+            StopDistance = 2.0f;
+        }
+        else
+        {
+            StopDistance = 15.0f;
+        }
     }
 
     public override void IntervalUpdate()
     {
         base.IntervalUpdate();
-        OwnerBodyguard.BodyguardNavMesh.SetDestination(FollowTarget.transform.position);
+        if (FollowTarget) OwnerBodyguard.BodyguardNavMesh.SetDestination(FollowTarget.transform.position);
     }
 
 
     public override void Update()
     {
         base.Update();
-        OwnerBodyguard.BodyguardAnimator.SetFloat("MovementZ", OwnerBodyguard.BodyguardNavMesh.velocity.normalized.z);
+        //OwnerBodyguard.BodyguardAnimator.SetFloat("MovementZ", OwnerBodyguard.BodyguardNavMesh.velocity.normalized.z);
 
-        if (Vector3.Distance(OwnerBodyguard.transform.position, FollowTarget.transform.position) < StopDistance)
+        if (FollowTarget)
         {
-            StateMachine.ChangeState(BodyguardStateType.Attack);
+            if (Vector3.Distance(OwnerBodyguard.transform.position, FollowTarget.transform.position) < StopDistance)
+            {
+                StateMachine.ChangeState(BodyguardStateType.Attack);
+            }
         }
-
-
     }
 }

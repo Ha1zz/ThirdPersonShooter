@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BodyguardIdleState : BodyguardStates
 {
-    public BodyguardIdleState(BodyguardComponent Bodyguard, StateMachines stateMachine) : base(Bodyguard, stateMachine)
+    public BodyguardIdleState(BodyguardComponent Bodyguard, StateMachine stateMachine) : base(Bodyguard, stateMachine)
     {
     }
 

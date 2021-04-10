@@ -18,7 +18,7 @@ namespace Character
 
         //
         private Animator playerAnimator;
-        private PlayerManager playerController;
+        private PlayerController playerController;
         private NavMeshAgent playerNavMesh;
 
 
@@ -32,7 +32,7 @@ namespace Character
         private void Awake()
         {
             playerTransform = transform;
-            playerController = GetComponent<PlayerManager>();
+            playerController = GetComponent<PlayerController>();
             playerAnimator = GetComponent<Animator>();
             playerRigidbody = GetComponent<Rigidbody>();
             playerNavMesh = GetComponent<NavMeshAgent>();

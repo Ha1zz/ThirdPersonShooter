@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Parent
-{ 
+//namespace Parent
+//{ 
     public class InputMonoBehaviour : MonoBehaviour
     {
-        protected ThirdPersonShooterInputAction GameInput;
+        protected PlayerInputActions GameInput;
 
         protected void Awake()
         {
-            GameInput = new ThirdPersonShooterInputAction();
+            GameInput = new PlayerInputActions();
         }
 
         protected void OnEnable()
@@ -23,4 +23,4 @@ namespace Parent
             GameInput.Disable();
         }
     }
-}
+//}

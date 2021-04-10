@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class State : MonoBehaviour
 {
-    protected StateMachines StateMachine;
+    protected StateMachine StateMachine;
     public float UpdateInterval { get; protected set; } = 1.0f;
 
 
-    protected State(StateMachines stateMachine)
+    protected State(StateMachine stateMachine)
     {
         StateMachine = stateMachine;
     }

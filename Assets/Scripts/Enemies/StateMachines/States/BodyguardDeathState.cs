@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BodyguardDeathState : BodyguardStates
 {
-    public BodyguardDeathState(BodyguardComponent Bodyguard, StateMachines stateMachine) : base(Bodyguard, stateMachine)
+    public BodyguardDeathState(BodyguardComponent Bodyguard, StateMachine stateMachine) : base(Bodyguard, stateMachine)
     {
 
     }
@@ -25,6 +25,6 @@ public class BodyguardDeathState : BodyguardStates
         base.Exit();
         OwnerBodyguard.BodyguardNavMesh.isStopped = false;
         OwnerBodyguard.BodyguardAnimator.SetBool("IsDead", false);
-
+        OwnerBodyguard.IsDead = true;
     }
 }

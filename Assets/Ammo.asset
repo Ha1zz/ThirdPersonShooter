@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab2084075d244e418b88d5e9c4e6291, type: 3}
+  m_Name: Ammo
+  m_EditorClassIdentifier: 
+  Name: Ammo
+  ItemCategory: 4
+  ItemPrefab: {fileID: 6571505605035263899, guid: a68e3ebe34239ec4c9a22ac589b680f1,
+    type: 3}
+  Stackable: 1
+  MaxStack: 99
+  Effect: 10

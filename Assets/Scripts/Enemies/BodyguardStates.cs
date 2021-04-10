@@ -5,7 +5,7 @@ using UnityEngine;
 public class BodyguardStates : State
 {
     protected BodyguardComponent OwnerBodyguard;
-    public BodyguardStates(BodyguardComponent Bodyguard, StateMachines stateMachine) : base(stateMachine)
+    public BodyguardStates(BodyguardComponent Bodyguard, StateMachine stateMachine) : base(stateMachine)
     {
         OwnerBodyguard = Bodyguard;
     }
